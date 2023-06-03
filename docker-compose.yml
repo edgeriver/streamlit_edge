@@ -1,0 +1,34 @@
+version: '3'
+services:
+  web:
+    # build: .
+    image: streamlitAPP
+    container_name: streamlitAPP
+    ports:
+      - "8501:80502"
+    # depends_on:
+    #   - db
+    networks:
+      - myslq_net1
+    volumes:
+      - ./main.py:/app/main.py
+      - ./pages/:/app/pages/
+  # db:
+  #   container_name: myslq2
+  #   image: mysql:8.0
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: example
+  #     MYSQL_DATABASE: mydatabase
+    # env_file: 
+    #   - ./env_file.env
+    # ports:
+    #   - "3306:3306"
+    # volumes:
+    #   - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    # networks:
+    #   - myslq_net1
+
+networks:
+  myslq_net1:
+    driver: bridge
