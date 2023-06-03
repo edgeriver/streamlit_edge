@@ -2,10 +2,10 @@ version: '3'
 services:
   web:
     # build: .
-    image: streamlitAPP
+    image: streamlitapp
     container_name: streamlitAPP
     ports:
-      - "8501:80502"
+      - "8502:8501"
     # depends_on:
     #   - db
     networks:
