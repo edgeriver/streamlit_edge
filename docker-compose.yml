@@ -3,13 +3,13 @@ services:
   web:
     # build: .
     image: streamlitapp
-    container_name: streamlitAPP
+    container_name: streamlitapp
     ports:
       - "8502:8501"
     # depends_on:
     #   - db
     networks:
-      - myslq_net1
+      - streamlit_net
     volumes:
       - ./main.py:/app/main.py
       - ./pages/:/app/pages/
@@ -27,8 +27,8 @@ services:
     # volumes:
     #   - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     # networks:
-    #   - myslq_net1
+    #   - streamlit_net
 
 networks:
-  myslq_net1:
+  streamlit_net:
     driver: bridge
