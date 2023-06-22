@@ -1,10 +1,10 @@
 import streamlit as st
 
 # markdown
-st.markdown('Streamlit Demo4444')
+st.markdown('Streamlit Demo')
 
 # 设置网页标题
-st.title('一个傻瓜式构建可视化 web的 Python 神器 -- streamlit')
+st.title('构建可视化-- streamlit')
 
 # 展示一级标题
 st.header('1. 安装')
