@@ -5,12 +5,12 @@ FROM python:3.9-slim
 EXPOSE 8501
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
-
-RUN pip3 config set global.index-url 'https://mirrors.aliyun.com/pypi/simple/'
-RUN pip3 config set install.trusted-host 'mirrors.aliyun.com'
-RUN pip install --upgrade pip
-RUN pip3 install -r requirements.txt
 COPY . .
+RUN pip3 config set global.index-url 'https://mirrors.aliyun.com/pypi/simple/'\
+&& pip3 config set install.trusted-host 'mirrors.aliyun.com'\
+&& apt-get update -y\
+&& apt-get install -y git \
+&& pip3 install -r requirements.txt
+
 ENTRYPOINT ["python3", "-m" , "streamlit", "run","main.py"]
 CMD [ "--server.port=8501"]
